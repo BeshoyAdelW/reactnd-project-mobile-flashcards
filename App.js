@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
-import HomeHeader from "./components/HomeHeader";
-import globalStyles from "./utils/globalStyles";
-import tempData from "./utils/data";
-import DeckCard from "./components/DeckCard";
+import Decks from "./components/Decks";
 
 function CustomStatusBar({ ...props }) {
   return (
@@ -18,14 +15,7 @@ export default class App extends Component {
     return (
       <View style={styles.appContainer}>
         <CustomStatusBar />
-        <View>
-          <HomeHeader />
-          <Text style={globalStyles.title}>Decks</Text>
-          {Object.keys(tempData).map((key) => {
-            const deck = tempData[key];
-            return <DeckCard deck={deck} key={key} />;
-          })}
-        </View>
+        <Decks />
       </View>
     );
   }
