@@ -1,4 +1,25 @@
-const data = {
+import { AsyncStorage } from "react-native";
+
+const DECKS_STORAGE_KEY = "MobileFlashcards:Decks";
+
+/**
+ * Get's all the decks of flashcards.
+ * Using an async data approach with temp data. Could mature to REST API later.
+ */
+export async function fetchAllDecks() {
+  // Get all the decks from AsyncStorage. If there aren't any then use the temp data
+  // as the default set of decks.
+  let decksJson = await AsyncStorage.getItem(DECKS_STORAGE_KEY);
+
+  if (decksJson !== null) {
+    return JSON.parse(decksJson);
+  } else {
+    AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(tempData));
+    return tempData;
+  }
+}
+
+const tempData = {
   Deck1: {
     id: "D1",
     title: "Deck 1",
@@ -26,5 +47,3 @@ const data = {
     ],
   },
 };
-
-export default data;
