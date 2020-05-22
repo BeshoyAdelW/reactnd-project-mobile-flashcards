@@ -15,11 +15,7 @@ export default function DeckCard(props) {
         <Text style={styles.createdText}>Created: {deck.created}</Text>
         <View style={styles.countContainer}>
           <Text style={styles.countText}>Cards in deck : {cardCount}</Text>
-          {cardCount === 1 ? (
-            <Text style={styles.countLabel}>card</Text>
-          ) : (
-            <Text style={styles.countLabel}>cards</Text>
-          )}
+          {cardCount === 1 ? <Text> card</Text> : <Text> cards</Text>}
         </View>
       </View>
       <FontAwesome name="chevron-right" style={styles.rightArrow} size={18} />
@@ -60,8 +56,7 @@ const styles = StyleSheet.create({
   countLabel: {
     marginLeft: 5,
     marginBottom: 2,
-    fontSize: 22,
-    color: "#ffffffcc",
+    fontSize: 16,
   },
   rightArrow: {},
 });

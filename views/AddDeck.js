@@ -3,25 +3,36 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import globalStyles from "../utils/globalStyles";
 import { textColor, white } from "../utils/colors";
+import CustomStatusBar from "../components/CustomStatusBar";
+import HomeHeader from "../components/HomeHeader";
 
 export default function AddDeck() {
   return (
-    <View style={globalStyles.viewContainer}>
-      <Text style={globalStyles.title}>Add Deck</Text>
-      <Text style={styles.tagline}>Create a new decks of flashcards</Text>
+    <View>
+      <CustomStatusBar />
+      <ScrollView style={globalStyles.viewContainer}>
+        <View>
+          <HomeHeader />
+          <View style={globalStyles.viewContainer}>
+            <Text style={globalStyles.title}>Add Deck</Text>
+            <Text style={styles.tagline}>Create a new deck of flashcards</Text>
 
-      <Text style={styles.label}>What is the title of your new deck?</Text>
-      <TextInput style={styles.input} placeholder="Deck Title" />
-
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Create Deck</Text>
-      </TouchableOpacity>
+            <Text style={styles.label}>
+              What is the title of your new deck?
+            </Text>
+            <TextInput style={styles.input} placeholder="Deck Title" />
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Create Deck</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }
