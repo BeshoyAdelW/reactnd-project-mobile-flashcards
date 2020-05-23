@@ -36,13 +36,11 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Swap from row back to the default of column
   },
   headerText: {
-    color: white,
     fontSize: 32,
   },
   countText: {
     marginTop: 24,
     fontSize: 26,
-    color: white,
   },
   imageContainer: {
     flex: 1,

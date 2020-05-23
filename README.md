@@ -24,6 +24,13 @@ or
 
 Runs the app in the development mode.<br>
 
+### Testing
+
+This project has been tested on the following platforms:
+
+- iOS 11+
+- Android 9+.
+
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
