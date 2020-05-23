@@ -9,7 +9,7 @@ import DeckCard from "../components/DeckCard";
 
 class Decks extends Component {
   render() {
-    const { decks } = this.props;
+    const { decksArray } = this.props;
     return (
       <View>
         <CustomStatusBar />
@@ -17,10 +17,9 @@ class Decks extends Component {
           <View>
             <HomeHeader />
             <Text style={globalStyles.title}>Decks</Text>
-            {Object.keys(decks).map((key) => {
-              const deck = decks[key];
-              return <DeckCard deck={deck} key={key} />;
-            })}
+            {decksArray.map((deck) => (
+              <DeckCard deck={deck} key={deck.id} />
+            ))}
           </View>
         </ScrollView>
       </View>
@@ -29,8 +28,11 @@ class Decks extends Component {
 }
 
 function mapStateToProps(decks) {
+  const decksArray = Object.keys(decks)
+    .map((key) => decks[key])
+    .sort((a, b) => b.timestamp - a.timestamp);
   return {
-    decks,
+    decksArray,
   };
 }
 
