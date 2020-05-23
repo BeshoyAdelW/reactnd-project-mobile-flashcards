@@ -5,6 +5,7 @@ import Decks from "../views/Decks";
 import Deck from "../views/Deck";
 import AddDeck from "../views/AddDeck";
 import AddCard from "../views/AddCard";
+import Quiz from "../views/Quiz";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function StackNavigation() {
       <Stack.Screen name="Deck" component={Deck} />
       <Stack.Screen name="AddDeck" component={AddDeck} />
       <Stack.Screen name="AddCard" component={AddCard} />
+      <Stack.Screen name="Quiz" component={Quiz} />
     </Stack.Navigator>
   );
 }

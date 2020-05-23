@@ -26,7 +26,12 @@ export function push(...args) {
   navigationRef.current.dispatch(StackActions.push(...args));
 }
 
+function goBack(name) {
+  navigationRef.current.navigate(name);
+}
+
 export default {
   navigate,
+  goBack,
   push,
 };
