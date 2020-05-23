@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNavigation from "./TabNavigation";
-import Decks from "../views/Decks";
 import Deck from "../views/Deck";
 import AddDeck from "../views/AddDeck";
 import AddCard from "../views/AddCard";

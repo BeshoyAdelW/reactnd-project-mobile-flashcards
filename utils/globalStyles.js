@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { textColor, white, violet, textRed } from "./colors";
+import { white, violet, textRed } from "./colors";
 
 const globalStyles = StyleSheet.create({
   viewContainer: {

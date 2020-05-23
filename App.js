@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import TabNavigation from "./navigation/TabNavigation";
-import CustomStatusBar from "./components/CustomStatusBar";
-import globalStyles from "./utils/globalStyles";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
 import { receiveDecks } from "./actions/index";
 import { fetchAllDecks } from "./utils/data";
-import NavigationService from "./navigation/navigationService";
 import StackNavigation from "./navigation/StackNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { navigationRef } from "./navigation/navigationService";

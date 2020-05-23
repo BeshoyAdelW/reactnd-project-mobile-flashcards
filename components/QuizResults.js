@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import globalStyles from "../utils/globalStyles";
 import { textColor } from "../utils/colors";
-import NavigationService from "../navigation/navigationService";
 import navigationService from "../navigation/navigationService";
 
 function QuizResults(props) {

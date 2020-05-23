@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import globalStyles from "../utils/globalStyles";
-import { textColor, white } from "../utils/colors";
+import { textColor, white, violet } from "../utils/colors";
 
 class Question extends Component {
   state = {
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     height: 50,
     borderRadius: 10,
-    backgroundColor: "#DC3545",
+    backgroundColor: violet,
   },
   btnSuccessText: {
     color: white,
