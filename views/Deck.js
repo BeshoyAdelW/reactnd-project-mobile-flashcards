@@ -27,9 +27,8 @@ class Deck extends Component {
   }
 }
 
-function mapStateToProps(decks, { navigation }) {
-  const { deckId } = navigation.state.params;
-
+function mapStateToProps(decks, { route }) {
+  const { deckId } = route.params;
   return {
     deckId,
     deck: decks[deckId],
