@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { View, Text, TouchableOpacity } from "react-native";
 import globalStyles from "../utils/globalStyles";
-
+import navigation from "react-navigation";
 import DeckCard from "../components/DeckCard";
 
 class Deck extends Component {

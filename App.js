@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import TabNavigation from "./components/TabNavigation";
+import TabNavigation from "./navigation/TabNavigation";
 import CustomStatusBar from "./components/CustomStatusBar";
 import globalStyles from "./utils/globalStyles";
 import { createStore } from "redux";
@@ -9,6 +9,10 @@ import reducer from "./reducers";
 import middleware from "./middleware";
 import { receiveDecks } from "./actions/index";
 import { fetchAllDecks } from "./utils/data";
+import NavigationService from "./navigation/navigationService";
+import StackNavigation from "./navigation/StackNavigation";
+import { NavigationContainer } from "@react-navigation/native";
+import { navigationRef } from "./navigation/navigationService";
 
 export default class App extends Component {
   store = createStore(reducer, middleware);
@@ -31,13 +35,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider store={this.store}>
-        <View style={styles.appContainer}>
-          {this.state.prerequisitesLoaded && (
-            <TabNavigation style={globalStyles} />
-          )}
-        </View>
-      </Provider>
+      <NavigationContainer ref={navigationRef}>
+        <Provider store={this.store}>
+          <View style={styles.appContainer}>
+            {this.state.prerequisitesLoaded && <StackNavigation />}
+          </View>
+        </Provider>
+      </NavigationContainer>
     );
   }
 }

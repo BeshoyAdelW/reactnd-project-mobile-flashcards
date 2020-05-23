@@ -119,12 +119,14 @@ function mapDispatchToProps(dispatch, { navigation }) {
     addDeck: (title) => {
       const deckId = title.replace(/\s/g, "");
       const dateString = new Date().toISOString().split("T")[0];
+      const timestamp = Math.round(new Date() / 1000);
 
       dispatch(
         addDeck({
           id: deckId,
           title: title,
           created: dateString,
+          timestamp: timestamp,
           questions: [],
         })
       );

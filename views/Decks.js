@@ -18,7 +18,7 @@ class Decks extends Component {
             <HomeHeader />
             <Text style={globalStyles.title}>Decks</Text>
             {decksArray.map((deck) => (
-              <DeckCard deck={deck} key={deck.id} />
+              <DeckCard deck={deck} allowNavigation={true} key={deck.id} />
             ))}
           </View>
         </ScrollView>
