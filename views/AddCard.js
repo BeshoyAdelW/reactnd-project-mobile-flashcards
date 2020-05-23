@@ -28,7 +28,7 @@ class AddCard extends Component {
   };
 
   onSubmit = () => {
-    const { addCard, goBack } = this.props;
+    const { addCard } = this.props;
     const { question, answer } = this.state;
     const questionNoWhitespace = question.replace(/\s/g, "");
     const answerNoWhitespace = answer.replace(/\s/g, "");
@@ -54,7 +54,6 @@ class AddCard extends Component {
     }
 
     addCard(question, answer);
-    goBack();
 
     this.resetState();
   };
@@ -114,10 +113,10 @@ class AddCard extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch, { navigation }) {
+function mapDispatchToProps(dispatch, { route }) {
   return {
     addCard: (question, answer) => {
-      const { deckId } = navigation.state.params;
+      const { deckId } = route.params;
       const questionDetails = {
         deckId,
         question,
@@ -126,7 +125,6 @@ function mapDispatchToProps(dispatch, { navigation }) {
 
       dispatch(addCard(questionDetails));
     },
-    goBack: () => navigation.goBack(),
   };
 }
 
