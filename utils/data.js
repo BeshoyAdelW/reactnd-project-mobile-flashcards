@@ -7,6 +7,7 @@ const DECKS_STORAGE_KEY = "MobileFlashcards:Decks";
  * Using an async data approach with temp data. Could mature to REST API later.
  */
 export async function fetchAllDecks() {
+  await AsyncStorage.clear();
   // Get all the decks from AsyncStorage. If there aren't any then use the temp data
   // as the default set of decks.
   let decksJson = await AsyncStorage.getItem(DECKS_STORAGE_KEY);

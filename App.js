@@ -6,11 +6,12 @@ import globalStyles from "./utils/globalStyles";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
+import middleware from "./middleware";
 import { receiveDecks } from "./actions/index";
 import { fetchAllDecks } from "./utils/data";
 
 export default class App extends Component {
-  store = createStore(reducer);
+  store = createStore(reducer, middleware);
 
   state = {
     prerequisitesLoaded: false,
