@@ -8,7 +8,6 @@ import {
   Animated,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { white } from "../utils/colors";
 import NavigationService from "../navigation/navigationService";
 
 class DeckCard extends Component {
