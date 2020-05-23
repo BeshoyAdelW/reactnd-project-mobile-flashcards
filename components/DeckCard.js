@@ -1,11 +1,34 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Animated,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { white } from "../utils/colors";
 import NavigationService from "../navigation/navigationService";
 
 class DeckCard extends Component {
+  state = {
+    scaleValue: new Animated.Value(1),
+  };
+
+  handleDeckPress = () => {
+    const { deck } = this.props;
+    const { scaleValue } = this.state;
+
+    Animated.sequence([
+      Animated.timing(scaleValue, { duration: 125, toValue: 0.96 }),
+      Animated.timing(scaleValue, { duration: 125, toValue: 1 }),
+    ]).start(() => {
+      NavigationService.navigate("Deck", {
+        deckId: deck.id,
+      });
+    });
+  };
   handleDeckPress = () => {
     const { deck } = this.props;
     NavigationService.navigate("Deck", {
@@ -14,33 +37,38 @@ class DeckCard extends Component {
   };
 
   render() {
-    const { deck, allowNavigation, navigation } = this.props;
+    const { deck, allowNavigation } = this.props;
+    const { scaleValue } = this.state;
     const cardCount = deck.questions.length;
 
     return (
-      <TouchableOpacity
-        disabled={!allowNavigation}
-        onPress={this.handleDeckPress}
-        style={styles.container}
-      >
-        <View style={styles.container}>
-          <View style={styles.contentContainer}>
-            <Text style={styles.title}>{deck.title}</Text>
-            <Text style={styles.createdText}>Created: {deck.created}</Text>
-            <View style={styles.countContainer}>
-              <Text style={styles.countText}>Cards in deck : {cardCount}</Text>
-              {cardCount === 1 ? <Text> card</Text> : <Text> cards</Text>}
+      <Animated.View style={{ transform: [{ scale: scaleValue }] }}>
+        <TouchableOpacity
+          disabled={!allowNavigation}
+          onPress={this.handleDeckPress}
+          style={styles.container}
+        >
+          <View style={styles.container}>
+            <View style={styles.contentContainer}>
+              <Text style={styles.title}>{deck.title}</Text>
+              <Text style={styles.createdText}>Created: {deck.created}</Text>
+              <View style={styles.countContainer}>
+                <Text style={styles.countText}>
+                  Cards in deck : {cardCount}
+                </Text>
+                {cardCount === 1 ? <Text> card</Text> : <Text> cards</Text>}
+              </View>
             </View>
           </View>
-        </View>
-        {allowNavigation && (
-          <FontAwesome
-            name="chevron-right"
-            style={styles.rightArrow}
-            size={18}
-          />
-        )}
-      </TouchableOpacity>
+          {allowNavigation && (
+            <FontAwesome
+              name="chevron-right"
+              style={styles.rightArrow}
+              size={18}
+            />
+          )}
+        </TouchableOpacity>
+      </Animated.View>
     );
   }
 }
