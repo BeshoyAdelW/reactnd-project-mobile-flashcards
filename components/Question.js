@@ -25,7 +25,7 @@ class Question extends Component {
     const { questionObject } = this.props;
 
     return (
-      <View>
+      <View style={{ flex: 2 }}>
         <Text style={globalStyles.title}>Question</Text>
         <Text style={styles.largeText}>{questionObject.question}</Text>
 

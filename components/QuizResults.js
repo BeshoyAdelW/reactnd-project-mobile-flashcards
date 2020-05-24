@@ -16,7 +16,7 @@ function QuizResults(props) {
   );
 
   return (
-    <View>
+    <View style={{ flex: 2 }}>
       <Text style={globalStyles.title}>Quiz Complete</Text>
       <Text style={styles.largeText}>
         You got {questionsAnsweredCorrectly} out of {totalQuestions} correct (

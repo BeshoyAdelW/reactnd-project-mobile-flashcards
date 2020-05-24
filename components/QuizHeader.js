@@ -5,11 +5,13 @@ import { white, violet } from "../utils/colors";
 
 export default function QuizHeader(props) {
   return (
-    <View style={styles.headerTextContainer}>
-      <Text style={styles.headerText}>Quiz Time!</Text>
-      <Text style={styles.countText}>
-        {props.currentQuestionIndex + 1} / {props.totalQuestions}
-      </Text>
+    <View style={{ flex: 1 }}>
+      <View style={styles.headerTextContainer}>
+        <Text style={styles.headerText}>Quiz Time!</Text>
+        <Text style={styles.countText}>
+          {props.currentQuestionIndex + 1} / {props.totalQuestions}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -21,7 +23,7 @@ QuizHeader.propTypes = {
 
 const styles = StyleSheet.create({
   headerPanel: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     paddingLeft: 16,

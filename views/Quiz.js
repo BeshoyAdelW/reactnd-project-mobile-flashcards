@@ -46,10 +46,10 @@ class Quiz extends Component {
     const currentQuestionObject = questions[currentQuestionIndex];
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, flexDirection: "row" }}>
         <CustomStatusBar />
 
-        <View style={globalStyles.viewContainer}>
+        <View style={(globalStyles.viewContainer, { flex: 1 })}>
           <QuizHeader
             currentQuestionIndex={currentQuestionIndex}
             totalQuestions={questions.length}
